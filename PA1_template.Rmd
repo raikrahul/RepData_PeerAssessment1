@@ -8,13 +8,30 @@ output:
 
 ## Loading and preprocessing the data
 
-
+```{r}
+  unzip(zipfile="activity.zip")
+  data<-read.csv("activity.csv")
+  summary(data)
+```
 
 ## What is mean total number of steps taken per day?
+```{r}
+  library(ggplot2)
+  
+  stepsCount<-tapply(data$steps,data$date,FUN=sum,na.rm=1)
+  qplot(stepsCount, binwidth = 1000, xlab = "total number of steps taken each day")
+  summary(stepsCount)
+#The summary above includes the mean and median both 
+```
 
 
 
 ## What is the average daily activity pattern?
+
+```{r}
+  
+
+```
 
 
 
@@ -23,3 +40,4 @@ output:
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
+
